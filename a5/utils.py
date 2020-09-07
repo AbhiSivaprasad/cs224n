@@ -20,12 +20,12 @@ nltk.download('punkt')
 
 def pad_sents_char(sents, char_pad_token):
     """ Pad list of sentences according to the longest sentence in the batch and longest words in all sentences.
-    @param sents (list[list[list[int]]]): list of sentences, result of `words2charindices()`
+    @param sents (list[list[list[int]]]): list of sentences, result of `words2charindices()` 
         from `vocab.py`
     @param char_pad_token (int): index of the character-padding token
     @returns sents_padded (list[list[list[int]]]): list of sentences where sentences/words shorter
         than the max length sentence/word are padded out with the appropriate pad token, such that
-        each sentence in the batch now has same number of words and each word has an equal
+        each sentence in the batch now has same number of words and each word has an equal 
         number of characters
         Output shape: (batch_size, max_sentence_length, max_word_length)
     """
@@ -39,7 +39,7 @@ def pad_sents_char(sents, char_pad_token):
         sentence = sents[k]
         sent_padded = []
 
-        for w in sentence:
+        for w in sentence: 
             data = [c for c in w] + [char_pad_token for _ in range(max_word_length-len(w))]
             if len(data) > max_word_length:
                 data = data[:max_word_length]
@@ -63,9 +63,13 @@ def pad_sents(sents, pad_token):
     """
     sents_padded = []
 
-    ### COPY OVER YOUR CODE FROM ASSIGNMENT 4
+    max_len = max(len(s) for s in sents)
+    batch_size = len(sents)
 
-    ### END YOUR CODE FROM ASSIGNMENT 4
+    for s in sents:
+        padded = [pad_token] * max_len
+        padded[:len(s)] = s
+        sents_padded.append(padded)
 
     return sents_padded
 

@@ -1,9 +1,9 @@
 name: local_nmt
 channels:
-  - soumith
+  - pytorch
   - defaults
 dependencies:
-  - pytorch=1.0.0
+  - pytorch
   - python=3.5
   - numpy
   - scipy

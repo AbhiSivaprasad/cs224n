@@ -51,7 +51,7 @@ class DummyVocab():
         self.end_of_word = self.char2id["}"]
 
 def question_1e_sanity_check():
-    """ Sanity check for to_input_tensor_char() function.
+    """ Sanity check for to_input_tensor_char() function. 
     """
     print ("-"*80)
     print("Running Sanity Check for Question 1e: To Input Tensor Char")
@@ -150,7 +150,7 @@ def main():
     torch.cuda.manual_seed(seed)
     np.random.seed(seed * 13 // 7)
 
-    vocab = Vocab.load('./sanity_check_en_es_data/vocab_sanity_check.json')
+    vocab = Vocab.load('./sanity_check_en_es_data/vocab_sanity_check.json') 
 
     # Create NMT Model
     model = NMT(
